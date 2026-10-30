@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/public-sans';
+
+@theme {
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Public Sans Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #f2f5f7;
+  --color-surface: #ffffff;
+  --color-ink: #17212b;
+  --color-muted: #52606d;
+  --color-line: #d6dee5;
+
+  --color-harbor-50: #e8f3f5;
+  --color-harbor-100: #cfe5ea;
+  --color-harbor-600: #0e5a6b;
+  --color-harbor-700: #0a4553;
+  --color-harbor-800: #083844;
+
+  --color-lost-bg: #fdecc8;
+  --color-lost-fg: #8a4b06;
+  --color-found-bg: #cdf3e8;
+  --color-found-fg: #0b6354;
+  --color-claimed-bg: #e0e4ff;
+  --color-claimed-fg: #3b3fa8;
+  --color-resolved-bg: #e3e8ee;
+  --color-resolved-fg: #3d4b5a;
+  --color-danger: #b42318;
+  --color-danger-bg: #fdeceb;
+  --color-ok-bg: #e3f6ec;
+  --color-ok-fg: #14632f;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    line-height: 1.55;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-ink;
+    line-height: 1.12;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-harbor-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  dialog::backdrop {
+    background: rgb(23 33 43 / 0.55);
+  }
+}
+
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+@utility btn-primary {
+  @apply btn bg-harbor-600 text-white hover:bg-harbor-700;
+}
+
+@utility btn-secondary {
+  @apply btn border border-line bg-surface text-ink hover:border-harbor-600 hover:text-harbor-700;
+}
+
+@utility btn-outline-danger {
+  @apply btn border border-line bg-surface text-danger hover:border-danger;
+}
+
+@utility btn-danger {
+  @apply btn bg-danger text-white hover:bg-[#8f1b11];
+}
+
+@utility btn-ghost {
+  @apply btn text-harbor-700 hover:bg-harbor-50;
+}
+
+@utility field {
+  @apply block w-full rounded-lg border border-line bg-surface px-3 py-2.5 text-base text-ink placeholder:text-muted/70 focus:border-harbor-600;
+}
+
+@utility field-error {
+  @apply border-danger;
+}
+
+@utility panel {
+  @apply rounded-xl border border-line bg-surface;
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

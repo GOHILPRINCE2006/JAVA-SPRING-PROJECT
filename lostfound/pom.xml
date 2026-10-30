@@ -70,6 +70,20 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Spring Security test support (MockMvc + session/CSRF helpers) -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- In-memory database so tests run without MySQL -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -22,6 +22,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
+    @ToString.Exclude
     @Column(nullable = false)
     private String password;
 

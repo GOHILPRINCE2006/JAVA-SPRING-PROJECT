@@ -16,4 +16,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
     // Get all items in a specific category
     List<Item> findByCategoryId(Long categoryId);
+
+    // Used to stop a category that is still in use from being deleted
+    boolean existsByCategoryId(Long categoryId);
 }
